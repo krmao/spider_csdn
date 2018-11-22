@@ -1,3 +1,4 @@
+# -*- coding:UTF-8 -*-
 import scrapy
 import json
 
@@ -15,7 +16,7 @@ class CsdnListSpider(scrapy.spiders.Spider):
 
     def parse(self, response):
 
-        filename = response.url.replace(":","_").replace("/","_").replace(".","_").replace("?","_").replace("&","_")
+        filename = response.url.replace(":","_").replace("/","_").replace(".","_").replace("?","_").replace("&","_") + ".html"
         with open(filename, 'wb') as f:
             f.write(response.body)
 
